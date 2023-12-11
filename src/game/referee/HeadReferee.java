@@ -32,7 +32,6 @@ public class HeadReferee implements RefereeAction{
         System.out.println("THE WINNER IS " + player.getName() + " !");
         System.out.println("! END GAME !");
         System.out.println("===================================");
-        System.exit(0);
     };
 
     @Override

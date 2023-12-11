@@ -10,7 +10,8 @@ public class VirtualPlayer extends Player implements PlayerAction{
         super(name);
     }
 
-    public void expressDefeat() {
+    public void expressDefeat(Player player) {
+        System.out.println(">>>" + player.getName()+ ": " + "I lost !, you're so good");
     }
 
     @Override

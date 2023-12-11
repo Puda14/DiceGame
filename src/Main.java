@@ -98,7 +98,13 @@ public class Main {
                     System.out.println("Your score is currently: " + realPlayer.getScore());
                     System.out.println("------------------------------------------");
 
-                    if(ref.isWinner(realPlayer)) ref.declareWinner(realPlayer);
+                    if(ref.isWinner(realPlayer)) {
+                        ref.declareWinner(realPlayer);
+                        for(Player indexPlayer : playersList)
+                                if(indexPlayer instanceof VirtualPlayer)
+                                    ((VirtualPlayer) indexPlayer).expressDefeat(indexPlayer);
+                        System.exit(0);
+                    }
                 }
                 else {
 
@@ -116,7 +122,13 @@ public class Main {
                     System.out.println(virtualPlayer.getName() + " score is currently: " + virtualPlayer.getScore());
                     System.out.println("------------------------------------------");
 
-                    if(ref.isWinner(virtualPlayer)) ref.declareWinner(virtualPlayer);
+                    if(ref.isWinner(virtualPlayer)){
+                        ref.declareWinner(virtualPlayer);
+                        for(Player indexPlayer : playersList)
+                            if(indexPlayer instanceof VirtualPlayer && indexPlayer != virtualPlayer)
+                                ((VirtualPlayer) indexPlayer).expressDefeat(indexPlayer);
+                        System.exit(0);
+                    }
                 }
             }
         }
